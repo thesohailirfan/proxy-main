@@ -4,13 +4,11 @@ const server = net.createServer();
 
 server.on("connection", (clientToProxySocket) => {
     console.log("Client connected to proxy");
-    console.log(clientToProxySocket)
     clientToProxySocket.once("data", (data) => {
         let isTLSConnection = data.toString().indexOf("CONNECT") !== -1;
 
         let serverPort = 80;
         let serverAddress;
-        console.log(data.toString());
         if (isTLSConnection) {
             serverPort = 443;
             serverAddress = data
@@ -21,7 +19,6 @@ server.on("connection", (clientToProxySocket) => {
         } else {
             serverAddress = data.toString().split("Host: ")[1].split("\r\n")[0];
         }
-        console.log(serverAddress);
 
         // Creating a connection from proxy to destination server
         let proxyToServerSocket = net.createConnection(
