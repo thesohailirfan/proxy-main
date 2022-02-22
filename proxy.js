@@ -67,10 +67,9 @@ server.on("close", () => {
 
 server.listen(
     {
-        host: "0.0.0.0",
-        port: 8080 || 5000,
+        port: 5000,
     },
     () => {
-        console.log("Server listening on 0.0.0.0:8080");
+        console.log("Server listening on 5000");
     }
 );
