@@ -67,6 +67,6 @@ server.listen(
         port: process.env.PORT || 5000,
     },
     () => {
-        console.log("Server listening on 5000");
+        console.log("Server listening on 5000 or ", process.env.PORT);
     }
 );
