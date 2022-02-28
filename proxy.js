@@ -1,5 +1,6 @@
 // Import of net module
-const net = require("net");
+
+const net = require('net');
 const server = net.createServer();
 
 server.on("connection", (clientToProxySocket) => {
@@ -64,9 +65,10 @@ server.on("close", () => {
 
 server.listen(
     {
-        port: process.env.PORT || 5000,
+        port: 8080,
+        host: "0.0.0.0",
     },
     () => {
-        console.log("Server listening on 5000 or ", process.env.PORT);
+        console.log("Server listening on 5000 ");
     }
 );
